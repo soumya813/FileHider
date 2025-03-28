@@ -1,9 +1,17 @@
 package views;
 
+import dao.UserDAO;
+import model.User;
+import service.GenerateOTP;
+import service.SendOTPService;
+import service.UserService;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
+import java.util.Scanner;
 
 public class Welcome {
     public void welcomeScreen(){
@@ -26,8 +34,41 @@ public class Welcome {
     }
 
     private void signUp() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your username");
+        String username = sc.nextLine();
+        System.out.println("Enter your password");
+        String email = sc.nextLine();
+        String genOTP = GenerateOTP.getOTP();
+        SendOTPService.sendOTP(email, genOTP);
+        System.out.println("Enter the OTP");
+        String otp = sc.nextLine();
+        if(otp.equals(genOTP)){
+            User user = new User(username, email);
+        }else{
+            System.out.println("Invalid OTP");
+        }
     }
 
     private void login() {
+        Scanner sc = new Scanner(System.in);
+        String email = sc.nextLine();
+        try{
+            if(UserDAO.isExists(email)){
+                String genOTP = GenerateOTP.getOTP();
+                SendOTPService.sendOTP(email, genOTP);
+                System.out.println("Enter the OTP");
+                String otp = sc.nextLine();
+                if(otp.equals(genOTP)){
+                    System.out.println("Login Successful");
+                }else{
+                    System.out.println("Invalid OTP");
+                }
+            }else{
+                System.out.println("User not found");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 }
