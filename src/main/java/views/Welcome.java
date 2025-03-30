@@ -37,7 +37,7 @@ public class Welcome {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your username");
         String username = sc.nextLine();
-        System.out.println("Enter your password");
+        System.out.println("Enter your email");
         String email = sc.nextLine();
         String genOTP = GenerateOTP.getOTP();
         SendOTPService.sendOTP(email, genOTP);
@@ -45,6 +45,11 @@ public class Welcome {
         String otp = sc.nextLine();
         if(otp.equals(genOTP)){
             User user = new User(username, email);
+            int response = UserService.saveUser(user);
+            switch(response){
+                case 0 -> System.out.println("User Registered Successfully");
+                case 1 -> System.out.println("User already exists");
+            }
         }else{
             System.out.println("Invalid OTP");
         }
@@ -52,6 +57,7 @@ public class Welcome {
 
     private void login() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your email");
         String email = sc.nextLine();
         try{
             if(UserDAO.isExists(email)){
@@ -60,7 +66,7 @@ public class Welcome {
                 System.out.println("Enter the OTP");
                 String otp = sc.nextLine();
                 if(otp.equals(genOTP)){
-                    System.out.println("Login Successful");
+                    new UserView(email).home();
                 }else{
                     System.out.println("Invalid OTP");
                 }
