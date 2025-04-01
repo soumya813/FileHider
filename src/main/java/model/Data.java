@@ -13,6 +13,12 @@ public class Data {
         this.email = email;
     }
 
+    public Data(int id, String fileName, String path) {
+        this.id = id;
+        this.fileName = fileName;
+        this.path = path;
+    }
+
     public int getId() {
         return id;
     }
