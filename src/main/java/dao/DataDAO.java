@@ -53,5 +53,9 @@ public class DataDAO {
             fw.write((char)i);
         }
         fw.close();
+        ps = connection.prepareStatement("delete from data where id = ?");
+        ps.setInt(1,id);
+        ps.executeUpdate();
+        System.out.println("Successfully Unhidden");
     }
 }
