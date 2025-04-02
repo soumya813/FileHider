@@ -28,7 +28,7 @@ public class DataDAO {
         }
         return files;
     }
-    public static int hidFile(Data file) throws SQLException, IOException {
+    public static int hideFile(Data file) throws SQLException, IOException {
         Connection connection = MyConnection.getConnection();
         PreparedStatement ps = connection.prepareStatement("insert into data(name,path,email,bin_data) values(?,?,?,?)");
         ps.setString(1,file.getFileName());
