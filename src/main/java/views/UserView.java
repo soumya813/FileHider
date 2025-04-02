@@ -50,7 +50,33 @@ public class UserView {
                     }
                 }
                 case 3 -> {
-                    
+                    List<Data> files = null;
+                    try {
+                        files = DataDAO.getAllFiles(this.email);
+
+                        System.out.println("ID - File Name");
+                        for(Data file: files){
+                            System.out.println(file.getId() + " - " + file.getFileName());
+                        }
+                        System.out.println("Enter the ID of the file to unhide");
+                        int id = Integer.parseInt(sc.nextLine());
+                        boolean isValidID = false;
+                        for(Data file : files){
+                            if(file.getId() == id){
+                                isValidID = true;
+                                break;
+                            }
+                        }
+                        if(isValidID){
+                        DataDAO.unhide(id);
+                        }else{
+                        System.out.println("Invalid ID");
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 case 0 -> {
                     System.exit(0);
