@@ -49,7 +49,13 @@ public class UserView {
                         e.printStackTrace();
                     }
                 }
+                case 3 -> {
+
+                }
+                case 0 -> {
+                    System.exit(0);
+                }
             }
-        }
+        }while(true);
     }
 }
