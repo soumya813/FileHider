@@ -9,11 +9,11 @@ public class MyConnection {
     public static Connection getConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/filehider?useSSL=false","root","Tashu@1523915");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/filehider?useSSL=false","root","Tashu@123");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("connection established....hehehe");
+        System.out.println("connection established");
         return connection;
     }
     public static void closeConnection(){

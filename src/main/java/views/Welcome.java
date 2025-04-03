@@ -8,7 +8,6 @@ import service.UserService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -36,7 +35,7 @@ public class Welcome {
     private void signUp() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your username");
-        String username = sc.nextLine();
+        String name = sc.nextLine();
         System.out.println("Enter your email");
         String email = sc.nextLine();
         String genOTP = GenerateOTP.getOTP();
@@ -44,7 +43,7 @@ public class Welcome {
         System.out.println("Enter the OTP");
         String otp = sc.nextLine();
         if(otp.equals(genOTP)){
-            User user = new User(username, email);
+            User user = new User(name, email);
             int response = UserService.saveUser(user);
             switch(response){
                 case 0 -> System.out.println("User Registered Successfully");

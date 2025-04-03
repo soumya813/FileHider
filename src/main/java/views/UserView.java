@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class UserView {
     private String email;
+
     UserView(String email){
         this.email = email;
     }

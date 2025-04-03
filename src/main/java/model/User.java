@@ -2,20 +2,20 @@ package model;
 
 public class User {
 
-    private String username;
+    private String name;
     private String email;
 
-    public User(String username, String email) {
-        this.username = username;
+    public User(String name, String email) {
+        this.name = name;
         this.email = email;
     }
 
     public String getName() {
-        return username;
+        return name;
     }
 
-    public void setName(String username){
-        this.username = username;
+    public void setName(String name){
+        this.name = name;
     }
 
     public String getEmail(){
