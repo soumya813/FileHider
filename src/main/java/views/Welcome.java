@@ -16,9 +16,9 @@ public class Welcome {
     public void welcomeScreen(){
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Welcome to the Application");
-        System.out.println("Presss 1 to Login");
-        System.out.println("Presss 2 to SignUp");
-        System.out.println("Presss 0 to Exit");
+        System.out.println("Press 1 to Login");
+        System.out.println("Press 2 to SignUp");
+        System.out.println("Press 0 to Exit");
         int choice = 0;
         try{
             choice = Integer.parseInt(br.readLine());
