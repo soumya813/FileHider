@@ -152,10 +152,6 @@
     -fx-background-color: #229954;
 }
 
-.exit-button:hover {
-    -fx-background-color: #c0392b;
-}
-
 .logout-button {
     -fx-background-color: #e74c3c;
     -fx-text-fill: white;
