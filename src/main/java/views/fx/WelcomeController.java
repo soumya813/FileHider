@@ -298,6 +298,7 @@ public class WelcomeController {
     }
     
     private boolean isValidEmail(String email) {
-        return email.contains("@") && email.contains(".");
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        return email != null && email.matches(emailRegex);
     }
 }
