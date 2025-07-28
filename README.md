@@ -307,7 +307,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Soumya Srivastav** - [YourGitHub](https://github.com/soumya813)
+- **Soumya Srivastav** - [GitHub](https://github.com/soumya813)
 
 ## 🙏 Acknowledgments
 
