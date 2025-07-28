@@ -169,7 +169,7 @@ public class MainController {
                         FileItem item = new FileItem(
                             data.getFileName(),
                             "Hidden File", // We can't determine size without reading the CLOB
-                            new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date()),
+                            new SimpleDateFormat("yyyy-MM-dd HH:mm").format(data.getHiddenTimestamp()),
                             data.getId()
                         );
                         fileItems.add(item);
