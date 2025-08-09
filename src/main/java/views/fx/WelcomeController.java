@@ -44,6 +44,20 @@ public class WelcomeController {
     @FXML
     private void initialize() {
         // Initialize the welcome screen
+        // Ensure hidden forms don't take up layout space
+        if (welcomeButtons != null) {
+            welcomeButtons.managedProperty().bind(welcomeButtons.visibleProperty());
+        }
+        if (loginForm != null) {
+            loginForm.managedProperty().bind(loginForm.visibleProperty());
+        }
+        if (signupForm != null) {
+            signupForm.managedProperty().bind(signupForm.visibleProperty());
+        }
+        if (otpForm != null) {
+            otpForm.managedProperty().bind(otpForm.visibleProperty());
+        }
+
         showWelcome();
     }
     

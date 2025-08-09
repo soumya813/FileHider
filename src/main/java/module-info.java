@@ -1,7 +1,6 @@
 module FileHider {
     requires javafx.controls;
     requires javafx.fxml;
-    requires transitive javafx.graphics;
     requires java.sql;
     requires java.mail;
     requires java.desktop;
