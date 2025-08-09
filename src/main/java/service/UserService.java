@@ -9,13 +9,14 @@ public class UserService {
     public static Integer saveUser(User user){
         try{
             if(UserDAO.isExists(user.getEmail())){
-                return 0;
+                return 1; // User already exists
             }else{
-                return UserDAO.saveUser(user);
+                int result = UserDAO.saveUser(user);
+                return result > 0 ? 0 : 2; // 0 = success, 2 = failed to save
             }
         }catch(SQLException ex){
             ex.printStackTrace();
+            return 2; // Error occurred
         }
-        return null;
     }
 }

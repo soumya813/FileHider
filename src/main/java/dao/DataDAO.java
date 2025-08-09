@@ -37,13 +37,12 @@ public class DataDAO {
         f.delete();
         return ans;
     }
-    public static void unhide(int id) throws SQLException, IOException {
+    public static void unhide(int id, String path) throws SQLException, IOException {
         Connection connection = MyConnection.getConnection();
-        PreparedStatement ps = connection.prepareStatement("select path, bin_data from data where id = ?");
+        PreparedStatement ps = connection.prepareStatement("select bin_data from data where id = ?");
         ps.setInt(1,id);
         ResultSet rs = ps.executeQuery();
         rs.next();
-        String path = rs.getString("path");
         Clob c = rs.getClob("bin_data");
 
         Reader r = c.getCharacterStream();

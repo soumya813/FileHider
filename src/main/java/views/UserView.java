@@ -69,9 +69,11 @@ public class UserView {
                             }
                         }
                         if(isValidID){
-                        DataDAO.unhide(id);
+                            System.out.println("Enter the destination path to save the file (including filename):");
+                            String destPath = sc.nextLine();
+                            DataDAO.unhide(id, destPath);
                         }else{
-                        System.out.println("Invalid ID");
+                            System.out.println("Invalid ID");
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();

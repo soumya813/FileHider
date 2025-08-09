@@ -155,8 +155,7 @@ public class MainController {
         Task<List<Data>> loadTask = new Task<List<Data>>() {
             @Override
             protected List<Data> call() throws Exception {
-                DataDAO dataDAO = new DataDAO();
-                return dataDAO.getAllFiles(userEmail);
+                return DataDAO.getAllFiles(userEmail);
             }
             
             @Override
@@ -203,8 +202,7 @@ public class MainController {
             @Override
             protected Integer call() throws Exception {
                 Data data = new Data(0, file.getName(), file.getAbsolutePath(), userEmail);
-                DataDAO dataDAO = new DataDAO();
-                return dataDAO.hideFile(data);
+                return DataDAO.hideFile(data);
             }
             
             @Override
@@ -250,11 +248,7 @@ public class MainController {
                 @Override
                 protected Boolean call() throws Exception {
                     // Update the unhide method to save to the chosen location
-                    DataDAO dataDAO = new DataDAO();
-                    
-                    // We need to modify the unhide method to accept a target path
-                    // For now, let's use the existing unhide method and then move the file
-                    dataDAO.unhide(fileItem.getId());
+                    DataDAO.unhide(fileItem.getId(), saveLocation.getAbsolutePath());
                     
                     return true;
                 }
