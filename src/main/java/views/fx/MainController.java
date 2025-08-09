@@ -167,8 +167,8 @@ public class MainController {
                     for (Data data : files) {
                         FileItem item = new FileItem(
                             data.getFileName(),
-                            "Hidden File", // We can't determine size without reading the CLOB
-                            new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Date()),
+                            "Hidden File", // Size unknown without reading the CLOB
+                            "N/A",
                             data.getId()
                         );
                         fileItems.add(item);

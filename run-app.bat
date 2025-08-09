@@ -1,5 +1,5 @@
 @echo off
-cd /d "c:\Users\91989\IdeaProjects\FileHider"
+cd /d "%USERPROFILE%\IdeaProjects\FileHider"
 
 echo Starting FileHider Desktop Application...
 
